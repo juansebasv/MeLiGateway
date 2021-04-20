@@ -1,0 +1,23 @@
+server:
+  port: 9595
+
+eureka:
+  client:
+    serviceUrl:
+      #defaultZone: http://localhost:8099/eureka/
+      defaultZone: https://admin:admin@meliapp-registry.herokuapp.com/eureka/
+
+spring:
+  application:
+    name: gatewayservice
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: meliservice
+          #uri: http://localhost:9696/
+          uri: lb://meliservice
+          predicates:
+            - Path=/app/**
