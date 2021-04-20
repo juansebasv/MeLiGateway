@@ -17,7 +17,7 @@ spring:
           enabled: true
       routes:
         - id: meliservice
-          #uri: http://localhost:9696/
-          uri: lb://meliservice
+          uri: https://meliapp-core.herokuapp.com/
+          #uri: lb://meliservice
           predicates:
             - Path=/app/**
